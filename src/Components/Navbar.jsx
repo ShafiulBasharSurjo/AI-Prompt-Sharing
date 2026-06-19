@@ -4,6 +4,7 @@ import { useState } from "react";
 import { Link, Button } from "@heroui/react";
 import logo from "../../public/assets/logo.png";
 import Image from "next/image";
+import { FiLogIn, FiUserPlus } from "react-icons/fi";
 
 function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -11,8 +12,8 @@ function Navbar() {
   const isLoggedIn = false;
 
   return (
-    <nav className="sticky top-0 z-40 w-full border-b border-separator bg-background/70 backdrop-blur-lg">
-      <header className="flex h-16 items-center justify-between px-6">
+    <nav className="sticky top-0 z-40 w-full border-b border-white/10 bg-linear-to-r from-[#050014]/95 via-[#12003a]/95 to-[#1a044d]/95 shadow-lg backdrop-blur-xl">
+      <header className="mx-auto flex h-20 max-w-7xl items-center justify-between px-6">
         <div className="flex items-center gap-3">
           <button
             className="md:hidden"
@@ -43,35 +44,71 @@ function Navbar() {
             </svg>
           </button>
 
-          <Link href="/" className="flex items-center gap-2 text-xl font-bold">
+          <Link
+            href="/"
+            className="group flex items-center gap-3 transition-transform duration-300 hover:scale-105"
+          >
             <Image
               src={logo}
-              width={40}
-              height={80}
+              width={42}
+              height={42}
               alt="Logo"
-              className="rounded-lg object-cover"
-            />{" "}
-            PromptsHub
+              className="rounded-xl shadow-md"
+            />
+
+            <div className="flex flex-col leading-none">
+              <span className="text-lg font-bold">PromptsHub</span>
+              <span className="text-xs text-default-500">
+                AI Prompt Marketplace
+              </span>
+            </div>
           </Link>
         </div>
 
         <ul className="hidden items-center gap-6 md:flex">
           <li>
-            <Link href="/">Home</Link>
+            <Link
+              href="/"
+              className="text-default-600 transition-colors duration-200 hover:text-primary"
+            >
+              Home
+            </Link>
           </li>
 
           <li>
-            <Link href="/prompts">All Prompts</Link>
+            <Link
+              href="/prompts"
+              className="text-default-600 transition-colors duration-200 hover:text-primary"
+            >
+              All Prompts
+            </Link>
           </li>
 
           {!isLoggedIn ? (
             <>
               <li>
-                <Link href="/login">Login</Link>
+                <Button
+                  as={Link}
+                  href="/login"
+                  variant="bordered"
+                  radius="full"
+                  size="sm"
+                  startContent={<FiLogIn size={16} />}
+                  className=" border-default-500/50 bg-white/5 px-5 font-semibold text-white transition-all duration-300 hover:bg-white/10"
+                >
+                  Login
+                </Button>
               </li>
 
               <li>
-                <Button as={Link} href="/register" color="primary" size="sm">
+                <Button
+                  as={Link}
+                  href="/register"
+                  radius="full"
+                  size="sm"
+                  startContent={<FiUserPlus size={16} />}
+                  className="bg-linear-to-r from-violet-500 to-fuchsia-500 px-5font-semibold text-white shadow-lg shadow-fuchsia-500/30 transition-all duration-300 hover:scale-105 hover:shadow-fuchsia-500/50"
+                >
                   Register
                 </Button>
               </li>
