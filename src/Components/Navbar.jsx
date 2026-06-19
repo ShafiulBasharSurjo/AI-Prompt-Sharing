@@ -57,7 +57,10 @@ function Navbar() {
             />
 
             <div className="flex flex-col leading-none">
-              <span className="text-lg font-bold">PromptsHub</span>
+              <h2 className="text-3xl font-bold">
+                Prompt
+                <span className="text-fuchsia-500">Hub</span>
+              </h2>
               <span className="text-xs text-default-500">
                 AI Prompt Marketplace
               </span>

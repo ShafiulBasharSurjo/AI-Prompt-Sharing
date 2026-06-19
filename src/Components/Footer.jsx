@@ -19,7 +19,13 @@ function Footer() {
           {/* Brand */}
           <div>
             <div className="mb-5 flex items-center gap-3">
-              <Image src={logo} alt="PromptHub" width={50} height={50} />
+              <Image
+                src={logo}
+                width={42}
+                height={42}
+                alt="Logo"
+                className="rounded-xl shadow-md"
+              />
 
               <h2 className="text-3xl font-bold">
                 Prompt
